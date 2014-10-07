@@ -193,16 +193,30 @@ varchar(250) null
 </tr>
 <tr>
 <td>
-用户图像
+用户图像名称
 </td>
 <td>
-picture
+pic_name
 </td>
 <td>
 varchar(250) null
 </td>
 <td>
 存储路径
+</td>
+</tr>
+<tr>
+<td>
+用户图像路径
+</td>
+<td>
+pic_path
+</td>
+<td>
+varchar(250) null
+</td>
+<td>
+&nbsp;
 </td>
 </tr>
 <tr>
@@ -391,16 +405,30 @@ varhar(250) not null
 </tr>
 <tr>
 <td>
-课程图片
+课程图片名字
 </td>
 <td>
-picture
+pic_name
 </td>
 <td>
-varchar(250)
+varchar(250) not null
 </td>
 <td>
 存储图片路径
+</td>
+</tr>
+<tr>
+<td>
+课程图片路径
+</td>
+<td>
+pic_path
+</td>
+<td>
+varchar(250) not null
+</td>
+<td>
+&nbsp;
 </td>
 </tr>
 <tr>
@@ -581,7 +609,7 @@ smallint not null
 lecturer_id
 </td>
 <td>
-&nbsp;
+smallint unsigned not null primary key(lecturer_id)
 </td>
 <td>
 &nbsp;
@@ -595,7 +623,7 @@ lecturer_id
 name
 </td>
 <td>
-&nbsp;
+varchar(255) not null
 </td>
 <td>
 &nbsp;
@@ -603,13 +631,27 @@ name
 </tr>
 <tr>
 <td>
-讲师图片
+讲师图片名
 </td>
 <td>
-picture
+pic_name
+</td>
+<td>
+varchar(255) not null
 </td>
 <td>
 &nbsp;
+</td>
+</tr>
+<tr>
+<td>
+讲师图片路径
+</td>
+<td>
+pic_path
+</td>
+<td>
+varchar(255) not null
 </td>
 <td>
 &nbsp;
@@ -623,7 +665,7 @@ picture
 introduction
 </td>
 <td>
-&nbsp;
+text not null
 </td>
 <td>
 &nbsp;
@@ -667,7 +709,7 @@ introduction
 ss_id
 </td>
 <td>
-&nbsp;
+int unsigned not null auto_increment primary key(ss_id)
 </td>
 <td>
 &nbsp;
@@ -681,7 +723,7 @@ ss_id
 course_id
 </td>
 <td>
-&nbsp;
+int unsigned not null foreign key(course_id) references courses(course_id)
 </td>
 <td>
 &nbsp;
@@ -695,7 +737,7 @@ course_id
 user_id
 </td>
 <td>
-&nbsp;
+int unsigned not null foreign key(user_id) references users(user_id)
 </td>
 <td>
 &nbsp;
@@ -739,7 +781,7 @@ user_id
 dis_id
 </td>
 <td>
-&nbsp;
+int unsigned not null auto_increment primary key(dis_id)
 </td>
 <td>
 &nbsp;
@@ -753,7 +795,7 @@ dis_id
 course_id
 </td>
 <td>
-&nbsp;
+int unsigned not null foreign key(course_id) references courses(course_id)
 </td>
 <td>
 &nbsp;
@@ -767,7 +809,7 @@ course_id
 content
 </td>
 <td>
-&nbsp;
+text not null
 </td>
 <td>
 &nbsp;
@@ -781,10 +823,10 @@ content
 time
 </td>
 <td>
-date
+datetime
 </td>
 <td>
-&nbsp;
+YYYY-MM-DD HH:MM:SS
 </td>
 </tr>
 <tr>
@@ -795,7 +837,7 @@ date
 course_id
 </td>
 <td>
-&nbsp;
+int unsigned not null  foreign key(course_id) references courses(course_id)
 </td>
 <td>
 &nbsp;
@@ -809,7 +851,7 @@ course_id
 reply_id
 </td>
 <td>
-&nbsp;
+int unsigned not null foreign key(reply_id) discussion(dis-id)
 </td>
 <td>
 &nbsp;
@@ -853,7 +895,7 @@ reply_id
 eva_id
 </td>
 <td>
-&nbsp;
+int unsigned not null auto_increment primary key(eva_id)
 </td>
 <td>
 &nbsp;
@@ -867,7 +909,7 @@ eva_id
 course_id
 </td>
 <td>
-&nbsp;
+int unsigned not null  foreign key(course_id) references courses(course_id)
 </td>
 <td>
 &nbsp;
@@ -881,7 +923,7 @@ course_id
 user_id
 </td>
 <td>
-&nbsp;
+int unsigned not null foreign key(user_id) references users(user_id)
 </td>
 <td>
 &nbsp;
@@ -895,7 +937,7 @@ user_id
 content
 </td>
 <td>
-&nbsp;
+text nut null
 </td>
 <td>
 &nbsp;
@@ -909,7 +951,7 @@ content
 start
 </td>
 <td>
-&nbsp;
+enum(1,2,3,4,5) default 5
 </td>
 <td>
 &nbsp;

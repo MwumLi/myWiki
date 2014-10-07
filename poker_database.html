@@ -809,7 +809,7 @@ int unsigned not null foreign key(course_id) references courses(course_id)
 reply_id
 </td>
 <td>
-int unsigned not null foreign key(reply_id) discussion(dis-id)
+int unsigned not null foreign key(reply_id) discussion(dis_id)
 </td>
 <td>
 &nbsp;
@@ -972,6 +972,9 @@ enum(1,2,3,4,5) default 5
 <td>
 限制及意义
 </td>
+<td>
+&nbsp;
+</td>
 </tr>
 <tr>
 <td>
@@ -979,6 +982,9 @@ enum(1,2,3,4,5) default 5
 </td>
 <td>
 note_id
+</td>
+<td>
+int unsigned not null auto_increment primary key(note_id)
 </td>
 <td>
 &nbsp;
@@ -995,6 +1001,9 @@ note_id
 user_id
 </td>
 <td>
+int unsigned not null foreign key(user_id) references users(user_id)
+</td>
+<td>
 &nbsp;
 </td>
 <td>
@@ -1007,6 +1016,9 @@ user_id
 </td>
 <td>
 course_id
+</td>
+<td>
+int unsigned not null  foreign key(course_id) references courses(course_id)
 </td>
 <td>
 &nbsp;
@@ -1023,6 +1035,9 @@ course_id
 content
 </td>
 <td>
+text not null
+</td>
+<td>
 &nbsp;
 </td>
 <td>
@@ -1037,6 +1052,9 @@ content
 course_time
 </td>
 <td>
+time not null
+</td>
+<td>
 当前笔记时，视频的播放时间
 </td>
 <td>
@@ -1049,6 +1067,9 @@ course_time
 </td>
 <td>
 note_time
+</td>
+<td>
+datetime not null
 </td>
 <td>
 当前笔记时，世界时间

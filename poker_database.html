@@ -24,8 +24,10 @@
 </div>
 <div id="main">
 
-<h2 id="toc_0.1" class="justcenter">poker数据库的初步构想</h2>
-<h3 id="toc_0.1.1">关于数据表简介</h3>
+<p>
+ ==  poker数据库的初步构想 =
+</p>
+<h3 id="toc_0.0.1">关于数据表简介</h3>
 <p>
 结果分析，数据表被分为12个  
 </p>
@@ -72,14 +74,14 @@
 
 </ol>
 
-<h3 id="toc_0.1.2">数据表的详细情形</h3>
+<h3 id="toc_0.0.2">数据表的详细情形</h3>
 <p>
 <strong>null</strong>:可以为空
 <strong>not null</strong>:不可以为空
 <strong>defalut x</strong>:默认值为x
 </p>
 
-<h4 id="toc_0.1.2.1">用户信息表</h4>
+<h4 id="toc_0.0.2.1">用户信息表</h4>
 <p>
 主要是用户来存储用户的基本信息资料  
 </p>
@@ -115,7 +117,7 @@
 user_id
 </td>
 <td>
-int unsigned not null auto_increment primary key(user_id)
+int unsigned not null auto_increment primary key
 </td>
 <td>
 &nbsp;
@@ -347,7 +349,7 @@ datetime not null
 </tr>
 </table>
 
-<h4 id="toc_0.1.2.2">课程信息表</h4>
+<h4 id="toc_0.0.2.2">课程信息表</h4>
 <p>
 主要用来存储课程的基本信息，比如课程名，课程位置，价钱等  
 </p>
@@ -383,7 +385,7 @@ datetime not null
 course_id
 </td>
 <td>
-int unsigned not null auto_increment primary key(course_id)
+int unsigned not null auto_increment primary key
 </td>
 <td>
 &nbsp;
@@ -587,7 +589,7 @@ smallint not null
 </tr>
 </table>
 
-<h4 id="toc_0.1.2.3">讲师信息表</h4>
+<h4 id="toc_0.0.2.3">讲师信息表</h4>
 <p>
 主要用来存储讲师的基本信息，比如姓名，简介
 </p>
@@ -623,7 +625,7 @@ smallint not null
 lecturer_id
 </td>
 <td>
-smallint unsigned not null primary key(lecturer_id)
+smallint unsigned not null auto_increment primary key
 </td>
 <td>
 &nbsp;
@@ -687,7 +689,7 @@ text not null
 </tr>
 </table>
 
-<h4 id="toc_0.1.2.4">课程订阅表</h4>
+<h4 id="toc_0.0.2.4">课程订阅表</h4>
 <p>
 主要存储用户订阅课程的信息，涉及用户和课程的交互
 </p>
@@ -759,7 +761,7 @@ int unsigned not null foreign key(user_id) references users(user_id)
 </tr>
 </table>
 
-<h4 id="toc_0.1.2.5">课程讨论表</h4>
+<h4 id="toc_0.0.2.5">课程讨论表</h4>
 <p>
 主要存储用户对于某一课程的讨论以及用户对用户讨论的回复，涉及课程，用户  
 </p>
@@ -859,7 +861,7 @@ YYYY-MM-DD HH:MM:SS
 </tr>
 </table>
 
-<h4 id="toc_0.1.2.6">课程评价表</h4>
+<h4 id="toc_0.0.2.6">课程评价表</h4>
 <p>
 主要记录用户对于本课程的评价，每个用户仅有一次评价机会，但是可以修改  
 </p>
@@ -959,7 +961,7 @@ enum(1,2,3,4,5) default 5
 </tr>
 </table>
 
-<h4 id="toc_0.1.2.7">笔记表</h4>
+<h4 id="toc_0.0.2.7">笔记表</h4>
 <p>
 主要是用户对于每一个课程的笔记，可以存储播放位置，涉及课程，用户  
 </p>
@@ -1073,7 +1075,7 @@ datetime not null
 </tr>
 </table>
 
-<h4 id="toc_0.1.2.8">话题表</h4>
+<h4 id="toc_0.0.2.8">话题表</h4>
 <p>
 主要存储用户发表的话题，就像百度贴吧的帖子,涉及用户表
 </p>
@@ -1257,7 +1259,7 @@ int unsigned not null foreign key(user_id) references users(user_id)
 </tr>
 </table>
 
-<h4 id="toc_0.1.2.9">话题回复表</h4>
+<h4 id="toc_0.0.2.9">话题回复表</h4>
 <p>
 主要存储用户某一话题的回复以及用户对其他用户在话题专栏回复的回复，涉及话题表,用户表
 </p>
@@ -1371,7 +1373,7 @@ datetime not null
 </tr>
 </table>
 
-<h4 id="toc_0.1.2.10">模拟面试表</h4>
+<h4 id="toc_0.0.2.10">模拟面试表</h4>
 <p>
 主要存储用户对模拟面试的信息
 </p>
@@ -1471,7 +1473,7 @@ varchar(255) not null
 </tr>
 </table>
 
-<h4 id="toc_0.1.2.11">课程众筹表</h4>
+<h4 id="toc_0.0.2.11">课程众筹表</h4>
 <p>
 用于存储用户对于我们发起的某门课程的众筹信息
 </p>
@@ -1599,7 +1601,7 @@ float not null default 0.0
 </tr>
 </table>
 
-<h4 id="toc_0.1.2.12">众筹评论表</h4>
+<h4 id="toc_0.0.2.12">众筹评论表</h4>
 <p>
 用于存储用户对每一个众筹课程的评论  
 </p>
@@ -1715,23 +1717,21 @@ datetime not null
 
 <div class="toc">
 <ul>
-<li><a href="#toc_0.1">poker数据库的初步构想</a>
+<li><a href="#toc_0.0.1">关于数据表简介</a>
+<li><a href="#toc_0.0.2">数据表的详细情形</a>
 <ul>
-<li><a href="#toc_0.1.1">关于数据表简介</a>
-<li><a href="#toc_0.1.2">数据表的详细情形</a>
-<ul>
-<li><a href="#toc_0.1.2.1">用户信息表</a>
-<li><a href="#toc_0.1.2.2">课程信息表</a>
-<li><a href="#toc_0.1.2.3">讲师信息表</a>
-<li><a href="#toc_0.1.2.4">课程订阅表</a>
-<li><a href="#toc_0.1.2.5">课程讨论表</a>
-<li><a href="#toc_0.1.2.6">课程评价表</a>
-<li><a href="#toc_0.1.2.7">笔记表</a>
-<li><a href="#toc_0.1.2.8">话题表</a>
-<li><a href="#toc_0.1.2.9">话题回复表</a>
-<li><a href="#toc_0.1.2.10">模拟面试表</a>
-<li><a href="#toc_0.1.2.11">课程众筹表</a>
-<li><a href="#toc_0.1.2.12">众筹评论表</a>
+<li><a href="#toc_0.0.2.1">用户信息表</a>
+<li><a href="#toc_0.0.2.2">课程信息表</a>
+<li><a href="#toc_0.0.2.3">讲师信息表</a>
+<li><a href="#toc_0.0.2.4">课程订阅表</a>
+<li><a href="#toc_0.0.2.5">课程讨论表</a>
+<li><a href="#toc_0.0.2.6">课程评价表</a>
+<li><a href="#toc_0.0.2.7">笔记表</a>
+<li><a href="#toc_0.0.2.8">话题表</a>
+<li><a href="#toc_0.0.2.9">话题回复表</a>
+<li><a href="#toc_0.0.2.10">模拟面试表</a>
+<li><a href="#toc_0.0.2.11">课程众筹表</a>
+<li><a href="#toc_0.0.2.12">众筹评论表</a>
 </ul>
 </ul>
 </ul>

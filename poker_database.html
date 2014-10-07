@@ -131,7 +131,7 @@ int unsigned not null auto_increment primary key
 user_type
 </td>
 <td>
-enum('g','m') defalut g
+enum('g','m') defalut 'g'
 </td>
 <td>
 &nbsp;
@@ -726,7 +726,7 @@ smallint not null
 ss_id
 </td>
 <td>
-int unsigned not null auto_increment primary key(ss_id)
+int unsigned not null auto_increment primary key
 </td>
 <td>
 &nbsp;
@@ -740,7 +740,7 @@ int unsigned not null auto_increment primary key(ss_id)
 course_id
 </td>
 <td>
-int unsigned not null foreign key(course_id) references courses(course_id)
+int unsigned not null ,foreign key(course_id) references courses(course_id)
 </td>
 <td>
 &nbsp;
@@ -754,7 +754,7 @@ int unsigned not null foreign key(course_id) references courses(course_id)
 user_id
 </td>
 <td>
-int unsigned not null foreign key(user_id) references users(user_id)
+int unsigned not null ,foreign key(user_id) references users(user_id)
 </td>
 <td>
 &nbsp;
@@ -798,7 +798,7 @@ int unsigned not null foreign key(user_id) references users(user_id)
 dis_id
 </td>
 <td>
-bigint unsigned not null auto_increment primary key(dis_id)
+bigint unsigned not null auto_increment primary key
 </td>
 <td>
 &nbsp;
@@ -812,7 +812,7 @@ bigint unsigned not null auto_increment primary key(dis_id)
 course_id
 </td>
 <td>
-int unsigned not null foreign key(course_id) references courses(course_id)
+int unsigned not null ,foreign key(course_id) references courses(course_id)
 </td>
 <td>
 &nbsp;
@@ -826,7 +826,7 @@ int unsigned not null foreign key(course_id) references courses(course_id)
 reply_id
 </td>
 <td>
-int unsigned not null foreign key(reply_id) discussion(dis_id)
+bigint unsigned not null ,foreign key(reply_id) discussion(dis_id)
 </td>
 <td>
 &nbsp;
@@ -898,7 +898,7 @@ YYYY-MM-DD HH:MM:SS
 eva_id
 </td>
 <td>
-int unsigned not null auto_increment primary key(eva_id)
+int unsigned not null auto_increment primary key
 </td>
 <td>
 &nbsp;
@@ -912,7 +912,7 @@ int unsigned not null auto_increment primary key(eva_id)
 course_id
 </td>
 <td>
-int unsigned not null  foreign key(course_id) references courses(course_id)
+int unsigned not null ,foreign key(course_id) references courses(course_id)
 </td>
 <td>
 &nbsp;
@@ -926,7 +926,7 @@ int unsigned not null  foreign key(course_id) references courses(course_id)
 user_id
 </td>
 <td>
-int unsigned not null foreign key(user_id) references users(user_id)
+int unsigned not null ,foreign key(user_id) references users(user_id)
 </td>
 <td>
 &nbsp;
@@ -951,10 +951,10 @@ text nut null
 星级
 </td>
 <td>
-start
+star
 </td>
 <td>
-enum(1,2,3,4,5) default 5
+tinyint default 5
 </td>
 <td>
 &nbsp;
@@ -998,7 +998,7 @@ enum(1,2,3,4,5) default 5
 note_id
 </td>
 <td>
-bigint unsigned not null auto_increment primary key(note_id)
+bigint unsigned not null auto_increment primary key
 </td>
 <td>
 &nbsp;
@@ -1012,7 +1012,7 @@ bigint unsigned not null auto_increment primary key(note_id)
 user_id
 </td>
 <td>
-int unsigned not null foreign key(user_id) references users(user_id)
+int unsigned not null ,foreign key(user_id) references users(user_id)
 </td>
 <td>
 &nbsp;
@@ -1026,7 +1026,7 @@ int unsigned not null foreign key(user_id) references users(user_id)
 course_id
 </td>
 <td>
-int unsigned not null foreign key(course_id) references courses(course_id)
+int unsigned not null ,foreign key(course_id) references courses(course_id)
 </td>
 <td>
 &nbsp;
@@ -1112,7 +1112,7 @@ datetime not null
 topic_id
 </td>
 <td>
-int unsigned not null auto_increment primary key(topic_id)
+int unsigned not null auto_increment primary key
 </td>
 <td>
 &nbsp;
@@ -1210,7 +1210,7 @@ varchar(255) not null
 browse
 </td>
 <td>
-int unsigned not null
+bigint unsigned not null
 </td>
 <td>
 &nbsp;
@@ -1252,7 +1252,7 @@ datetime not null
 user_id
 </td>
 <td>
-int unsigned not null foreign key(user_id) references users(user_id)
+int unsigned not null ,foreign key(user_id) references users(user_id)
 </td>
 <td>
 &nbsp;
@@ -1296,7 +1296,7 @@ int unsigned not null foreign key(user_id) references users(user_id)
 topic_reply_id
 </td>
 <td>
-bigint unsigned not null auto_increment primary key()
+bigint unsigned not null auto_increment primary key
 </td>
 <td>
 &nbsp;
@@ -1310,7 +1310,7 @@ bigint unsigned not null auto_increment primary key()
 topic_id
 </td>
 <td>
-int unsigned not null references topic(topic_id)
+int unsigned not null, foreign key(topic_id) references topic(topic_id)
 </td>
 <td>
 &nbsp;
@@ -1324,7 +1324,7 @@ int unsigned not null references topic(topic_id)
 reply_id
 </td>
 <td>
-int unsigned not null references topic_reply(topic_reply_id)
+bigint unsigned not null, foreign key(reply_id) references topic_reply(topic_reply_id)
 </td>
 <td>
 &nbsp;
@@ -1338,7 +1338,7 @@ int unsigned not null references topic_reply(topic_reply_id)
 user_id
 </td>
 <td>
-int unsigned not null references users(user_id)
+int unsigned not null , foreign key(use_id) references users(user_id)
 </td>
 <td>
 &nbsp;
@@ -1410,7 +1410,7 @@ datetime not null
 view_id
 </td>
 <td>
-int unsigned not null auto_increment primary key(view_id)
+int unsigned not null auto_increment primary key
 </td>
 <td>
 &nbsp;
@@ -1424,7 +1424,7 @@ int unsigned not null auto_increment primary key(view_id)
 user_id
 </td>
 <td>
-int unsigned not null references users(user_id)
+int unsigned not null foreign key(user_id) references users(user_id)
 </td>
 <td>
 &nbsp;
@@ -1438,7 +1438,7 @@ int unsigned not null references users(user_id)
 lecturer_id
 </td>
 <td>
-smallint unsigned not null references lecturers(lecturer_id)
+smallint unsigned not null, foreign key(lecturer_id) references lecturers(lecturer_id)
 </td>
 <td>
 &nbsp;
@@ -1510,7 +1510,7 @@ varchar(255) not null
 cfd_id
 </td>
 <td>
-int unsigned not null auto_increment primary key(cfd_id)
+int unsigned not null auto_increment primary key
 </td>
 <td>
 &nbsp;
@@ -1638,7 +1638,7 @@ float not null default 0.0
 cfd_reply_id
 </td>
 <td>
-int unsigned not null auto_increment primary key(cfd_reply_id)
+int unsigned not null auto_increment primary key
 </td>
 <td>
 &nbsp;
@@ -1652,7 +1652,7 @@ int unsigned not null auto_increment primary key(cfd_reply_id)
 cfd_id
 </td>
 <td>
-int unsigned not null references cfd(cfd_id)
+int unsigned not null, forieign key(cfd_id) references cfd(cfd_id)
 </td>
 <td>
 &nbsp;
@@ -1666,7 +1666,7 @@ int unsigned not null references cfd(cfd_id)
 repy_id
 </td>
 <td>
-int unsigned not null references cfd_reply(cfd_reply_id)
+int unsigned not null, forieign key(reply_id) references cfd_reply(cfd_reply_id)
 </td>
 <td>
 &nbsp;
@@ -1680,7 +1680,7 @@ int unsigned not null references cfd_reply(cfd_reply_id)
 user_id
 </td>
 <td>
-int unsigned not null references users(user_id)
+int unsigned not null, foreign key(user_id) references users(user_id)
 </td>
 <td>
 &nbsp;

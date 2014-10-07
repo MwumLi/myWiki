@@ -171,10 +171,10 @@ char(20) not null
 nick_name
 </td>
 <td>
-varchar(250),null                           完成登录的名称显示
+varchar(250) null
 </td>
 <td>
-&nbsp;
+完成登录时，显示的名称，若是不设置，请显示用户名
 </td>
 </tr>
 <tr>
@@ -185,10 +185,10 @@ varchar(250),null                           完成登录的名称显示
 name
 </td>
 <td>
-varchar(250),null                                 真实姓名
+varchar(250) null
 </td>
 <td>
-&nbsp;
+真实姓名
 </td>
 </tr>
 <tr>
@@ -199,10 +199,10 @@ varchar(250),null                                 真实姓名
 picture
 </td>
 <td>
-varchar(250), null
+varchar(250) null
 </td>
 <td>
-&nbsp;
+存储路径
 </td>
 </tr>
 <tr>
@@ -213,7 +213,7 @@ varchar(250), null
 birth
 </td>
 <td>
-date,null
+date null
 </td>
 <td>
 &nbsp;
@@ -227,7 +227,7 @@ date,null
 province
 </td>
 <td>
-varchar(250),null                                        现居住省
+varchar(250) null                                        现居住省
 </td>
 <td>
 &nbsp;
@@ -241,7 +241,7 @@ varchar(250),null                                        现居住省
 city
 </td>
 <td>
-varchar(250),null                                        现居住市
+varchar(250) null                                        现居住市
 </td>
 <td>
 &nbsp;
@@ -255,7 +255,7 @@ varchar(250),null                                        现居住市
 sex
 </td>
 <td>
-char(1),default m
+char(1) default m
 </td>
 <td>
 &nbsp;
@@ -269,7 +269,7 @@ char(1),default m
 occupation
 </td>
 <td>
-varchar(250),null
+varchar(250) null
 </td>
 <td>
 &nbsp;
@@ -297,10 +297,10 @@ char(11),null
 mail_flag
 </td>
 <td>
-tinynt(1),default 0,(未验证[0],验证[1])
+boolean default false
 </td>
 <td>
-&nbsp;
+未曾验证是false,验证成功是true
 </td>
 </tr>
 <tr>
@@ -311,7 +311,7 @@ tinynt(1),default 0,(未验证[0],验证[1])
 registration
 </td>
 <td>
-datetie,not null
+datetime not null
 </td>
 <td>
 &nbsp;

@@ -972,9 +972,6 @@ enum(1,2,3,4,5) default 5
 <td>
 限制及意义
 </td>
-<td>
-&nbsp;
-</td>
 </tr>
 <tr>
 <td>
@@ -985,9 +982,6 @@ note_id
 </td>
 <td>
 int unsigned not null auto_increment primary key(note_id)
-</td>
-<td>
-&nbsp;
 </td>
 <td>
 &nbsp;
@@ -1006,9 +1000,6 @@ int unsigned not null foreign key(user_id) references users(user_id)
 <td>
 &nbsp;
 </td>
-<td>
-&nbsp;
-</td>
 </tr>
 <tr>
 <td>
@@ -1018,10 +1009,7 @@ int unsigned not null foreign key(user_id) references users(user_id)
 course_id
 </td>
 <td>
-int unsigned not null  foreign key(course_id) references courses(course_id)
-</td>
-<td>
-&nbsp;
+int unsigned not null foreign key(course_id) references courses(course_id)
 </td>
 <td>
 &nbsp;
@@ -1040,9 +1028,6 @@ text not null
 <td>
 &nbsp;
 </td>
-<td>
-&nbsp;
-</td>
 </tr>
 <tr>
 <td>
@@ -1057,9 +1042,6 @@ time not null
 <td>
 当前笔记时，视频的播放时间
 </td>
-<td>
-&nbsp;
-</td>
 </tr>
 <tr>
 <td>
@@ -1073,9 +1055,6 @@ datetime not null
 </td>
 <td>
 当前笔记时，世界时间
-</td>
-<td>
-&nbsp;
 </td>
 </tr>
 </table>

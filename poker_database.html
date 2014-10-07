@@ -123,16 +123,16 @@ int unsigned not null auto_increment primary key(user_id)
 </tr>
 <tr>
 <td>
-用户名
+用户类型
 </td>
 <td>
-user_name
+user_type
 </td>
 <td>
-varchar(16) not null unique(user_name)
+enum('g','m') defalut g
 </td>
 <td>
-6-16位
+&nbsp;
 </td>
 </tr>
 <tr>
@@ -1095,7 +1095,7 @@ datetime not null
 topic_id
 </td>
 <td>
-&nbsp;
+int unsigned not null auto_increment primary key(topic_id)
 </td>
 <td>
 &nbsp;
@@ -1109,7 +1109,7 @@ topic_id
 title
 </td>
 <td>
-&nbsp;
+varchar(255) not null
 </td>
 <td>
 &nbsp;
@@ -1123,7 +1123,7 @@ title
 content
 </td>
 <td>
-&nbsp;
+text not null
 </td>
 <td>
 &nbsp;
@@ -1137,7 +1137,7 @@ content
 type
 </td>
 <td>
-&nbsp;
+varchar(255) not null
 </td>
 <td>
 &nbsp;
@@ -1151,7 +1151,7 @@ type
 lable1
 </td>
 <td>
-&nbsp;
+varchar(255) not null
 </td>
 <td>
 &nbsp;
@@ -1165,7 +1165,7 @@ lable1
 lable2
 </td>
 <td>
-&nbsp;
+varchar(255) not null
 </td>
 <td>
 &nbsp;
@@ -1179,7 +1179,7 @@ lable2
 lable3
 </td>
 <td>
-&nbsp;
+varchar(255) not null
 </td>
 <td>
 &nbsp;
@@ -1193,7 +1193,7 @@ lable3
 browse
 </td>
 <td>
-&nbsp;
+int unsigned not null
 </td>
 <td>
 &nbsp;
@@ -1207,7 +1207,7 @@ browse
 reply
 </td>
 <td>
-&nbsp;
+int unsigned not null
 </td>
 <td>
 &nbsp;
@@ -1221,7 +1221,7 @@ reply
 time
 </td>
 <td>
-&nbsp;
+datetime not null
 </td>
 <td>
 &nbsp;
@@ -1235,7 +1235,7 @@ time
 user_id
 </td>
 <td>
-&nbsp;
+int unsigned not null foreign key(user_id) references users(user_id)
 </td>
 <td>
 &nbsp;
@@ -1279,7 +1279,7 @@ user_id
 topic_reply_id
 </td>
 <td>
-这一条回复的Id
+int unsigned not null auto_increment primary key()
 </td>
 <td>
 &nbsp;
@@ -1293,7 +1293,7 @@ topic_reply_id
 topic_id
 </td>
 <td>
-&nbsp;
+int unsigned not null references topic(topic_id)
 </td>
 <td>
 &nbsp;
@@ -1307,7 +1307,7 @@ topic_id
 reply_id
 </td>
 <td>
-&nbsp;
+int unsigned not null references topic_reply(topic_reply_id)
 </td>
 <td>
 &nbsp;
@@ -1321,7 +1321,7 @@ reply_id
 user_id
 </td>
 <td>
-&nbsp;
+int unsigned not null references users(user_id)
 </td>
 <td>
 &nbsp;
@@ -1335,7 +1335,7 @@ user_id
 contnet
 </td>
 <td>
-&nbsp;
+text not null
 </td>
 <td>
 &nbsp;
@@ -1349,7 +1349,7 @@ contnet
 time
 </td>
 <td>
-&nbsp;
+datetime not null
 </td>
 <td>
 &nbsp;
@@ -1393,7 +1393,7 @@ time
 view_id
 </td>
 <td>
-&nbsp;
+int unsigned not null auto_increment primary key(view_id)
 </td>
 <td>
 &nbsp;
@@ -1407,7 +1407,7 @@ view_id
 user_id
 </td>
 <td>
-&nbsp;
+int unsigned not null references users(user_id)
 </td>
 <td>
 &nbsp;
@@ -1421,21 +1421,7 @@ user_id
 lecturer_id
 </td>
 <td>
-&nbsp;
-</td>
-<td>
-&nbsp;
-</td>
-</tr>
-<tr>
-<td>
-附件存放位置
-</td>
-<td>
-attachment
-</td>
-<td>
-&nbsp;
+smallint unsigned not null references lecturers(lecturer_id)
 </td>
 <td>
 &nbsp;
@@ -1446,10 +1432,24 @@ attachment
 附件名
 </td>
 <td>
-name
+att_name
+</td>
+<td>
+varchar(255) not null
 </td>
 <td>
 &nbsp;
+</td>
+</tr>
+<tr>
+<td>
+附件存放位置
+</td>
+<td>
+att_path
+</td>
+<td>
+varchar(255) not null
 </td>
 <td>
 &nbsp;
@@ -1463,7 +1463,7 @@ name
 </p>
 
 <p>
-<strong>表名:</strong><code>crowdfunding</code>
+<strong>表名:</strong><code>cfd</code>
 </p>
 
 <p>
@@ -1490,10 +1490,10 @@ name
 众筹ID
 </td>
 <td>
-cdf_id
+cfd_id
 </td>
 <td>
-&nbsp;
+int unsigned not null auto_increment primary key(cfd_id)
 </td>
 <td>
 &nbsp;
@@ -1507,7 +1507,7 @@ cdf_id
 course_name
 </td>
 <td>
-&nbsp;
+varchar(255) not null
 </td>
 <td>
 &nbsp;
@@ -1521,7 +1521,7 @@ course_name
 introduce
 </td>
 <td>
-&nbsp;
+text not null
 </td>
 <td>
 &nbsp;
@@ -1535,7 +1535,7 @@ introduce
 do_man
 </td>
 <td>
-&nbsp;
+int unsigned not null default 0
 </td>
 <td>
 &nbsp;
@@ -1549,7 +1549,7 @@ do_man
 deal_man
 </td>
 <td>
-&nbsp;
+int unsigned not null default 0
 </td>
 <td>
 &nbsp;
@@ -1563,7 +1563,7 @@ deal_man
 deadline
 </td>
 <td>
-&nbsp;
+datetime not null
 </td>
 <td>
 &nbsp;
@@ -1577,7 +1577,7 @@ deadline
 price
 </td>
 <td>
-&nbsp;
+float not null default 0.0
 </td>
 <td>
 &nbsp;
@@ -1591,7 +1591,7 @@ price
 </p>
 
 <p>
-<strong>表名:</strong><code>crowdfunding</code>
+<strong>表名:</strong><code>cfd_reply</code>
 </p>
 
 <p>
@@ -1621,7 +1621,7 @@ price
 cfd_reply_id
 </td>
 <td>
-&nbsp;
+int unsigned not null auto_increment primary key(cfd_reply_id)
 </td>
 <td>
 &nbsp;
@@ -1632,10 +1632,10 @@ cfd_reply_id
 众筹ID
 </td>
 <td>
-cdf_id
+cfd_id
 </td>
 <td>
-&nbsp;
+int unsigned not null references cfd(cfd_id)
 </td>
 <td>
 &nbsp;
@@ -1649,7 +1649,7 @@ cdf_id
 repy_id
 </td>
 <td>
-&nbsp;
+int unsigned not null references cfd_reply(cfd_reply_id)
 </td>
 <td>
 &nbsp;
@@ -1663,21 +1663,7 @@ repy_id
 user_id
 </td>
 <td>
-&nbsp;
-</td>
-<td>
-&nbsp;
-</td>
-</tr>
-<tr>
-<td>
-评论时间
-</td>
-<td>
-time
-</td>
-<td>
-&nbsp;
+int unsigned not null references users(user_id)
 </td>
 <td>
 &nbsp;
@@ -1691,7 +1677,21 @@ time
 content
 </td>
 <td>
+text not null
+</td>
+<td>
 &nbsp;
+</td>
+</tr>
+<tr>
+<td>
+评论时间
+</td>
+<td>
+time
+</td>
+<td>
+datetime not null
 </td>
 <td>
 &nbsp;

@@ -255,7 +255,7 @@ varchar(250) null
 sex
 </td>
 <td>
-char(1) default m
+enum('m','f') default m
 </td>
 <td>
 &nbsp;
@@ -349,27 +349,13 @@ datetime not null
 </tr>
 <tr>
 <td>
-用户ID
-</td>
-<td>
-user_id
-</td>
-<td>
-int unsigned,not null,auto_increment,primary key
-</td>
-<td>
-&nbsp;
-</td>
-</tr>
-<tr>
-<td>
 课程ID
 </td>
 <td>
 course_id
 </td>
 <td>
-not null 自增长
+int unsigned not null auto_increment primary key(course_id)
 </td>
 <td>
 &nbsp;
@@ -383,7 +369,7 @@ not null 自增长
 name
 </td>
 <td>
-250个字节
+varchar(250) not null
 </td>
 <td>
 &nbsp;
@@ -397,7 +383,7 @@ name
 path
 </td>
 <td>
-250个字节
+varhar(250) not null
 </td>
 <td>
 &nbsp;
@@ -411,10 +397,10 @@ path
 picture
 </td>
 <td>
-250个字节 存储图片路径
+varchar(250)
 </td>
 <td>
-&nbsp;
+存储图片路径
 </td>
 </tr>
 <tr>
@@ -425,10 +411,10 @@ picture
 introduction
 </td>
 <td>
-65535个字节
+text
 </td>
 <td>
-&nbsp;
+可以存储65535个字符
 </td>
 </tr>
 <tr>
@@ -439,7 +425,7 @@ introduction
 watch_man
 </td>
 <td>
-defalut 0
+int unsigned defalut 0
 </td>
 <td>
 &nbsp;
@@ -453,7 +439,7 @@ defalut 0
 good_man
 </td>
 <td>
-default 0
+int unsigned default 0
 </td>
 <td>
 &nbsp;
@@ -467,10 +453,10 @@ default 0
 lecturer_id
 </td>
 <td>
-&nbsp;
+smallint unsigned not null
 </td>
 <td>
-&nbsp;
+65535个
 </td>
 </tr>
 <tr>
@@ -481,7 +467,21 @@ lecturer_id
 price
 </td>
 <td>
-default 0
+float default 0.0
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+折扣
+</td>
+<td>
+rebate
+</td>
+<td>
+float default 1.0
 </td>
 <td>
 &nbsp;
@@ -495,7 +495,7 @@ default 0
 service
 </td>
 <td>
-default 0
+float default 0.0
 </td>
 <td>
 &nbsp;
@@ -509,10 +509,10 @@ default 0
 time
 </td>
 <td>
-null
+time not null
 </td>
 <td>
-&nbsp;
+hh:mm:ss
 </td>
 </tr>
 <tr>
@@ -523,7 +523,7 @@ null
 type
 </td>
 <td>
-250个字节
+varchar(250)
 </td>
 <td>
 &nbsp;
@@ -537,7 +537,7 @@ type
 section
 </td>
 <td>
-smallint
+smallint not null
 </td>
 <td>
 &nbsp;

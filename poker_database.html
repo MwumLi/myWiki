@@ -803,6 +803,20 @@ int unsigned not null foreign key(course_id) references courses(course_id)
 </tr>
 <tr>
 <td>
+回复ID
+</td>
+<td>
+reply_id
+</td>
+<td>
+int unsigned not null foreign key(reply_id) discussion(dis-id)
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
 回复内容
 </td>
 <td>
@@ -827,20 +841,6 @@ datetime
 </td>
 <td>
 YYYY-MM-DD HH:MM:SS
-</td>
-</tr>
-<tr>
-<td>
-回复ID
-</td>
-<td>
-reply_id
-</td>
-<td>
-int unsigned not null foreign key(reply_id) discussion(dis-id)
-</td>
-<td>
-&nbsp;
 </td>
 </tr>
 </table>

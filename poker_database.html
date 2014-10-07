@@ -123,7 +123,29 @@ int unsigned,not null,auto_increment,primary key
 user_name
 </td>
 <td>
-6-16位，唯一,not null                          用户登录
+varchar(16)6-16位，唯一,unique,not null                          用户登录
+</td>
+</tr>
+<tr>
+<td>
+密码
+</td>
+<td>
+password
+</td>
+<td>
+6-21位，任意字符，not null
+</td>
+</tr>
+<tr>
+<td>
+加密字符串
+</td>
+<td>
+salt
+</td>
+<td>
+char(20),not null
 </td>
 </tr>
 <tr>
@@ -134,7 +156,7 @@ user_name
 nick_name
 </td>
 <td>
-250个字符，随意,null                           完成登录的名称显示
+varchar(250),null                           完成登录的名称显示
 </td>
 </tr>
 <tr>
@@ -145,7 +167,7 @@ nick_name
 name
 </td>
 <td>
-250个字符,null                                 真实姓名
+varchar(250),null                                 真实姓名
 </td>
 </tr>
 <tr>
@@ -156,7 +178,7 @@ name
 picture
 </td>
 <td>
-250个字符，defalut  一个路径
+varchar(250), null
 </td>
 </tr>
 <tr>
@@ -178,7 +200,7 @@ date,null
 province
 </td>
 <td>
-250字符,null                                        现居住省
+varchar(250),null                                        现居住省
 </td>
 </tr>
 <tr>
@@ -189,7 +211,7 @@ province
 city
 </td>
 <td>
-250字符,null                                        现居住市
+varchar(250),null                                        现居住市
 </td>
 </tr>
 <tr>
@@ -200,7 +222,7 @@ city
 sex
 </td>
 <td>
-1个字符,m/f，m-male,f-female,default m
+char(1),default m
 </td>
 </tr>
 <tr>
@@ -211,18 +233,7 @@ sex
 occupation
 </td>
 <td>
-250字符,null
-</td>
-</tr>
-<tr>
-<td>
-密码
-</td>
-<td>
-password
-</td>
-<td>
-6-21位，任意字符，not null
+varchar(250),null
 </td>
 </tr>
 <tr>
@@ -233,7 +244,7 @@ password
 phone
 </td>
 <td>
-11个字符,null
+char(11),null
 </td>
 </tr>
 <tr>
@@ -244,7 +255,7 @@ phone
 mail_flag
 </td>
 <td>
-bool型，true--&gt;表示验证，false--&gt;表示未曾验证,default false
+tinynt(1),default 0,(未验证[0],验证[1])
 </td>
 </tr>
 <tr>
@@ -255,10 +266,11 @@ bool型，true--&gt;表示验证，false--&gt;表示未曾验证,default false
 registration
 </td>
 <td>
-date,not null
+datetie,not null
 </td>
 </tr>
 </table>
+
 <h4 id="toc_0.1.2.2">课程信息表</h4>
 <p>
 主要用来存储课程的基本信息，比如课程名，课程位置，价钱等  

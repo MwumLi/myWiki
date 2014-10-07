@@ -202,7 +202,7 @@ pic_name
 varchar(250) null
 </td>
 <td>
-存储路径
+&nbsp;
 </td>
 </tr>
 <tr>
@@ -216,7 +216,7 @@ pic_path
 varchar(250) null
 </td>
 <td>
-&nbsp;
+存储路径
 </td>
 </tr>
 <tr>
@@ -414,7 +414,7 @@ pic_name
 varchar(250) not null
 </td>
 <td>
-存储图片路径
+&nbsp;
 </td>
 </tr>
 <tr>
@@ -428,7 +428,7 @@ pic_path
 varchar(250) not null
 </td>
 <td>
-&nbsp;
+存储图片路径(不包含图片名)
 </td>
 </tr>
 <tr>
@@ -827,20 +827,6 @@ datetime
 </td>
 <td>
 YYYY-MM-DD HH:MM:SS
-</td>
-</tr>
-<tr>
-<td>
-回复课程ID
-</td>
-<td>
-course_id
-</td>
-<td>
-int unsigned not null  foreign key(course_id) references courses(course_id)
-</td>
-<td>
-&nbsp;
 </td>
 </tr>
 <tr>

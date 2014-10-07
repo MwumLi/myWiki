@@ -101,6 +101,9 @@
 列表项
 </td>
 <td>
+类型定义
+</td>
+<td>
 限制及意义
 </td>
 </tr>
@@ -112,7 +115,10 @@
 user_id
 </td>
 <td>
-int unsigned,not null,auto_increment,primary key
+int unsigned not null auto_increment primary key(user_id)
+</td>
+<td>
+&nbsp;
 </td>
 </tr>
 <tr>
@@ -123,7 +129,10 @@ int unsigned,not null,auto_increment,primary key
 user_name
 </td>
 <td>
-varchar(16)6-16位，唯一,unique,not null                          用户登录
+varchar(16) not null unique(user_name)
+</td>
+<td>
+6-16位
 </td>
 </tr>
 <tr>
@@ -134,7 +143,10 @@ varchar(16)6-16位，唯一,unique,not null                          用户登�
 password
 </td>
 <td>
-6-21位，任意字符，not null
+varbinary(16) not null
+</td>
+<td>
+通过加密函数进行加密的二进制代码，不可见
 </td>
 </tr>
 <tr>
@@ -145,7 +157,10 @@ password
 salt
 </td>
 <td>
-char(20),not null
+char(20) not null
+</td>
+<td>
+加密所需的额外字符串，每次更改密码时，随机生成的
 </td>
 </tr>
 <tr>
@@ -158,6 +173,9 @@ nick_name
 <td>
 varchar(250),null                           完成登录的名称显示
 </td>
+<td>
+&nbsp;
+</td>
 </tr>
 <tr>
 <td>
@@ -168,6 +186,9 @@ name
 </td>
 <td>
 varchar(250),null                                 真实姓名
+</td>
+<td>
+&nbsp;
 </td>
 </tr>
 <tr>
@@ -180,6 +201,9 @@ picture
 <td>
 varchar(250), null
 </td>
+<td>
+&nbsp;
+</td>
 </tr>
 <tr>
 <td>
@@ -190,6 +214,9 @@ birth
 </td>
 <td>
 date,null
+</td>
+<td>
+&nbsp;
 </td>
 </tr>
 <tr>
@@ -202,6 +229,9 @@ province
 <td>
 varchar(250),null                                        现居住省
 </td>
+<td>
+&nbsp;
+</td>
 </tr>
 <tr>
 <td>
@@ -212,6 +242,9 @@ city
 </td>
 <td>
 varchar(250),null                                        现居住市
+</td>
+<td>
+&nbsp;
 </td>
 </tr>
 <tr>
@@ -224,6 +257,9 @@ sex
 <td>
 char(1),default m
 </td>
+<td>
+&nbsp;
+</td>
 </tr>
 <tr>
 <td>
@@ -234,6 +270,9 @@ occupation
 </td>
 <td>
 varchar(250),null
+</td>
+<td>
+&nbsp;
 </td>
 </tr>
 <tr>
@@ -246,6 +285,9 @@ phone
 <td>
 char(11),null
 </td>
+<td>
+&nbsp;
+</td>
 </tr>
 <tr>
 <td>
@@ -257,6 +299,9 @@ mail_flag
 <td>
 tinynt(1),default 0,(未验证[0],验证[1])
 </td>
+<td>
+&nbsp;
+</td>
 </tr>
 <tr>
 <td>
@@ -267,6 +312,9 @@ registration
 </td>
 <td>
 datetie,not null
+</td>
+<td>
+&nbsp;
 </td>
 </tr>
 </table>
@@ -293,7 +341,24 @@ datetie,not null
 列表项
 </td>
 <td>
+类型定义
+</td>
+<td>
 限制及意义
+</td>
+</tr>
+<tr>
+<td>
+用户ID
+</td>
+<td>
+user_id
+</td>
+<td>
+int unsigned,not null,auto_increment,primary key
+</td>
+<td>
+&nbsp;
 </td>
 </tr>
 <tr>
@@ -306,6 +371,9 @@ course_id
 <td>
 not null 自增长
 </td>
+<td>
+&nbsp;
+</td>
 </tr>
 <tr>
 <td>
@@ -316,6 +384,9 @@ name
 </td>
 <td>
 250个字节
+</td>
+<td>
+&nbsp;
 </td>
 </tr>
 <tr>
@@ -328,6 +399,9 @@ path
 <td>
 250个字节
 </td>
+<td>
+&nbsp;
+</td>
 </tr>
 <tr>
 <td>
@@ -338,6 +412,9 @@ picture
 </td>
 <td>
 250个字节 存储图片路径
+</td>
+<td>
+&nbsp;
 </td>
 </tr>
 <tr>
@@ -350,6 +427,9 @@ introduction
 <td>
 65535个字节
 </td>
+<td>
+&nbsp;
+</td>
 </tr>
 <tr>
 <td>
@@ -360,6 +440,9 @@ watch_man
 </td>
 <td>
 defalut 0
+</td>
+<td>
+&nbsp;
 </td>
 </tr>
 <tr>
@@ -372,6 +455,9 @@ good_man
 <td>
 default 0
 </td>
+<td>
+&nbsp;
+</td>
 </tr>
 <tr>
 <td>
@@ -379,6 +465,9 @@ default 0
 </td>
 <td>
 lecturer_id
+</td>
+<td>
+&nbsp;
 </td>
 <td>
 &nbsp;
@@ -394,6 +483,9 @@ price
 <td>
 default 0
 </td>
+<td>
+&nbsp;
+</td>
 </tr>
 <tr>
 <td>
@@ -404,6 +496,9 @@ service
 </td>
 <td>
 default 0
+</td>
+<td>
+&nbsp;
 </td>
 </tr>
 <tr>
@@ -416,6 +511,9 @@ time
 <td>
 null
 </td>
+<td>
+&nbsp;
+</td>
 </tr>
 <tr>
 <td>
@@ -427,6 +525,9 @@ type
 <td>
 250个字节
 </td>
+<td>
+&nbsp;
+</td>
 </tr>
 <tr>
 <td>
@@ -437,6 +538,9 @@ section
 </td>
 <td>
 smallint
+</td>
+<td>
+&nbsp;
 </td>
 </tr>
 </table>
@@ -463,6 +567,9 @@ smallint
 列表项
 </td>
 <td>
+类型定义
+</td>
+<td>
 限制及意义
 </td>
 </tr>
@@ -472,6 +579,9 @@ smallint
 </td>
 <td>
 lecturer_id
+</td>
+<td>
+&nbsp;
 </td>
 <td>
 &nbsp;
@@ -487,6 +597,9 @@ name
 <td>
 &nbsp;
 </td>
+<td>
+&nbsp;
+</td>
 </tr>
 <tr>
 <td>
@@ -498,6 +611,9 @@ picture
 <td>
 &nbsp;
 </td>
+<td>
+&nbsp;
+</td>
 </tr>
 <tr>
 <td>
@@ -505,6 +621,9 @@ picture
 </td>
 <td>
 introduction
+</td>
+<td>
+&nbsp;
 </td>
 <td>
 &nbsp;
@@ -534,6 +653,9 @@ introduction
 列表项
 </td>
 <td>
+类型定义
+</td>
+<td>
 限制及意义
 </td>
 </tr>
@@ -543,6 +665,9 @@ introduction
 </td>
 <td>
 ss_id
+</td>
+<td>
+&nbsp;
 </td>
 <td>
 &nbsp;
@@ -558,6 +683,9 @@ course_id
 <td>
 &nbsp;
 </td>
+<td>
+&nbsp;
+</td>
 </tr>
 <tr>
 <td>
@@ -565,6 +693,9 @@ course_id
 </td>
 <td>
 user_id
+</td>
+<td>
+&nbsp;
 </td>
 <td>
 &nbsp;
@@ -594,6 +725,9 @@ user_id
 列表项
 </td>
 <td>
+类型定义
+</td>
+<td>
 限制及意义
 </td>
 </tr>
@@ -603,6 +737,9 @@ user_id
 </td>
 <td>
 dis_id
+</td>
+<td>
+&nbsp;
 </td>
 <td>
 &nbsp;
@@ -618,6 +755,9 @@ course_id
 <td>
 &nbsp;
 </td>
+<td>
+&nbsp;
+</td>
 </tr>
 <tr>
 <td>
@@ -625,6 +765,9 @@ course_id
 </td>
 <td>
 content
+</td>
+<td>
+&nbsp;
 </td>
 <td>
 &nbsp;
@@ -640,6 +783,9 @@ time
 <td>
 date
 </td>
+<td>
+&nbsp;
+</td>
 </tr>
 <tr>
 <td>
@@ -651,6 +797,9 @@ course_id
 <td>
 &nbsp;
 </td>
+<td>
+&nbsp;
+</td>
 </tr>
 <tr>
 <td>
@@ -658,6 +807,9 @@ course_id
 </td>
 <td>
 reply_id
+</td>
+<td>
+&nbsp;
 </td>
 <td>
 &nbsp;
@@ -687,6 +839,9 @@ reply_id
 列表项
 </td>
 <td>
+类型定义
+</td>
+<td>
 限制及意义
 </td>
 </tr>
@@ -696,6 +851,9 @@ reply_id
 </td>
 <td>
 eva_id
+</td>
+<td>
+&nbsp;
 </td>
 <td>
 &nbsp;
@@ -711,6 +869,9 @@ course_id
 <td>
 &nbsp;
 </td>
+<td>
+&nbsp;
+</td>
 </tr>
 <tr>
 <td>
@@ -718,6 +879,9 @@ course_id
 </td>
 <td>
 user_id
+</td>
+<td>
+&nbsp;
 </td>
 <td>
 &nbsp;
@@ -733,6 +897,9 @@ content
 <td>
 &nbsp;
 </td>
+<td>
+&nbsp;
+</td>
 </tr>
 <tr>
 <td>
@@ -740,6 +907,9 @@ content
 </td>
 <td>
 start
+</td>
+<td>
+&nbsp;
 </td>
 <td>
 &nbsp;
@@ -769,6 +939,9 @@ start
 列表项
 </td>
 <td>
+类型定义
+</td>
+<td>
 限制及意义
 </td>
 </tr>
@@ -778,6 +951,9 @@ start
 </td>
 <td>
 note_id
+</td>
+<td>
+&nbsp;
 </td>
 <td>
 &nbsp;
@@ -793,6 +969,9 @@ user_id
 <td>
 &nbsp;
 </td>
+<td>
+&nbsp;
+</td>
 </tr>
 <tr>
 <td>
@@ -800,6 +979,9 @@ user_id
 </td>
 <td>
 course_id
+</td>
+<td>
+&nbsp;
 </td>
 <td>
 &nbsp;
@@ -815,6 +997,9 @@ content
 <td>
 &nbsp;
 </td>
+<td>
+&nbsp;
+</td>
 </tr>
 <tr>
 <td>
@@ -826,6 +1011,9 @@ course_time
 <td>
 当前笔记时，视频的播放时间
 </td>
+<td>
+&nbsp;
+</td>
 </tr>
 <tr>
 <td>
@@ -836,6 +1024,9 @@ note_time
 </td>
 <td>
 当前笔记时，世界时间
+</td>
+<td>
+&nbsp;
 </td>
 </tr>
 </table>
@@ -862,6 +1053,9 @@ note_time
 列表项
 </td>
 <td>
+类型定义
+</td>
+<td>
 限制及意义
 </td>
 </tr>
@@ -871,6 +1065,9 @@ note_time
 </td>
 <td>
 topic_id
+</td>
+<td>
+&nbsp;
 </td>
 <td>
 &nbsp;
@@ -886,6 +1083,9 @@ title
 <td>
 &nbsp;
 </td>
+<td>
+&nbsp;
+</td>
 </tr>
 <tr>
 <td>
@@ -893,6 +1093,9 @@ title
 </td>
 <td>
 content
+</td>
+<td>
+&nbsp;
 </td>
 <td>
 &nbsp;
@@ -908,6 +1111,9 @@ type
 <td>
 &nbsp;
 </td>
+<td>
+&nbsp;
+</td>
 </tr>
 <tr>
 <td>
@@ -915,6 +1121,9 @@ type
 </td>
 <td>
 lable1
+</td>
+<td>
+&nbsp;
 </td>
 <td>
 &nbsp;
@@ -930,6 +1139,9 @@ lable2
 <td>
 &nbsp;
 </td>
+<td>
+&nbsp;
+</td>
 </tr>
 <tr>
 <td>
@@ -937,6 +1149,9 @@ lable2
 </td>
 <td>
 lable3
+</td>
+<td>
+&nbsp;
 </td>
 <td>
 &nbsp;
@@ -952,6 +1167,9 @@ browse
 <td>
 &nbsp;
 </td>
+<td>
+&nbsp;
+</td>
 </tr>
 <tr>
 <td>
@@ -959,6 +1177,9 @@ browse
 </td>
 <td>
 reply
+</td>
+<td>
+&nbsp;
 </td>
 <td>
 &nbsp;
@@ -974,6 +1195,9 @@ time
 <td>
 &nbsp;
 </td>
+<td>
+&nbsp;
+</td>
 </tr>
 <tr>
 <td>
@@ -981,6 +1205,9 @@ time
 </td>
 <td>
 user_id
+</td>
+<td>
+&nbsp;
 </td>
 <td>
 &nbsp;
@@ -1010,6 +1237,9 @@ user_id
 列表项
 </td>
 <td>
+类型定义
+</td>
+<td>
 限制及意义
 </td>
 </tr>
@@ -1023,6 +1253,9 @@ topic_reply_id
 <td>
 这一条回复的Id
 </td>
+<td>
+&nbsp;
+</td>
 </tr>
 <tr>
 <td>
@@ -1030,6 +1263,9 @@ topic_reply_id
 </td>
 <td>
 topic_id
+</td>
+<td>
+&nbsp;
 </td>
 <td>
 &nbsp;
@@ -1045,6 +1281,9 @@ reply_id
 <td>
 &nbsp;
 </td>
+<td>
+&nbsp;
+</td>
 </tr>
 <tr>
 <td>
@@ -1052,6 +1291,9 @@ reply_id
 </td>
 <td>
 user_id
+</td>
+<td>
+&nbsp;
 </td>
 <td>
 &nbsp;
@@ -1067,6 +1309,9 @@ contnet
 <td>
 &nbsp;
 </td>
+<td>
+&nbsp;
+</td>
 </tr>
 <tr>
 <td>
@@ -1074,6 +1319,9 @@ contnet
 </td>
 <td>
 time
+</td>
+<td>
+&nbsp;
 </td>
 <td>
 &nbsp;
@@ -1103,6 +1351,9 @@ time
 列表项
 </td>
 <td>
+类型定义
+</td>
+<td>
 限制及意义
 </td>
 </tr>
@@ -1112,6 +1363,9 @@ time
 </td>
 <td>
 view_id
+</td>
+<td>
+&nbsp;
 </td>
 <td>
 &nbsp;
@@ -1127,6 +1381,9 @@ user_id
 <td>
 &nbsp;
 </td>
+<td>
+&nbsp;
+</td>
 </tr>
 <tr>
 <td>
@@ -1134,6 +1391,9 @@ user_id
 </td>
 <td>
 lecturer_id
+</td>
+<td>
+&nbsp;
 </td>
 <td>
 &nbsp;
@@ -1149,6 +1409,9 @@ attachment
 <td>
 &nbsp;
 </td>
+<td>
+&nbsp;
+</td>
 </tr>
 <tr>
 <td>
@@ -1156,6 +1419,9 @@ attachment
 </td>
 <td>
 name
+</td>
+<td>
+&nbsp;
 </td>
 <td>
 &nbsp;
@@ -1185,6 +1451,9 @@ name
 列表项
 </td>
 <td>
+类型定义
+</td>
+<td>
 限制及意义
 </td>
 </tr>
@@ -1194,6 +1463,9 @@ name
 </td>
 <td>
 cdf_id
+</td>
+<td>
+&nbsp;
 </td>
 <td>
 &nbsp;
@@ -1209,6 +1481,9 @@ course_name
 <td>
 &nbsp;
 </td>
+<td>
+&nbsp;
+</td>
 </tr>
 <tr>
 <td>
@@ -1216,6 +1491,9 @@ course_name
 </td>
 <td>
 introduce
+</td>
+<td>
+&nbsp;
 </td>
 <td>
 &nbsp;
@@ -1231,6 +1509,9 @@ do_man
 <td>
 &nbsp;
 </td>
+<td>
+&nbsp;
+</td>
 </tr>
 <tr>
 <td>
@@ -1238,6 +1519,9 @@ do_man
 </td>
 <td>
 deal_man
+</td>
+<td>
+&nbsp;
 </td>
 <td>
 &nbsp;
@@ -1253,6 +1537,9 @@ deadline
 <td>
 &nbsp;
 </td>
+<td>
+&nbsp;
+</td>
 </tr>
 <tr>
 <td>
@@ -1260,6 +1547,9 @@ deadline
 </td>
 <td>
 price
+</td>
+<td>
+&nbsp;
 </td>
 <td>
 &nbsp;
@@ -1289,6 +1579,9 @@ price
 列表项
 </td>
 <td>
+类型定义
+</td>
+<td>
 限制及意义
 </td>
 </tr>
@@ -1298,6 +1591,9 @@ price
 </td>
 <td>
 cfd_reply_id
+</td>
+<td>
+&nbsp;
 </td>
 <td>
 &nbsp;
@@ -1313,6 +1609,9 @@ cdf_id
 <td>
 &nbsp;
 </td>
+<td>
+&nbsp;
+</td>
 </tr>
 <tr>
 <td>
@@ -1320,6 +1619,9 @@ cdf_id
 </td>
 <td>
 repy_id
+</td>
+<td>
+&nbsp;
 </td>
 <td>
 &nbsp;
@@ -1335,6 +1637,9 @@ user_id
 <td>
 &nbsp;
 </td>
+<td>
+&nbsp;
+</td>
 </tr>
 <tr>
 <td>
@@ -1346,6 +1651,9 @@ time
 <td>
 &nbsp;
 </td>
+<td>
+&nbsp;
+</td>
 </tr>
 <tr>
 <td>
@@ -1353,6 +1661,9 @@ time
 </td>
 <td>
 content
+</td>
+<td>
+&nbsp;
 </td>
 <td>
 &nbsp;

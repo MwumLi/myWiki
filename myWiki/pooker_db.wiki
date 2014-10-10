@@ -1,0 +1,227 @@
+ =  pooker数据库的构想 =
+Welcome,Everyone!
+=== 数据库简介 ===
+pooker数据库一共12个表  
+
+分别是：  
+# 用户信息表`users`
+# 讲师信息表`lecturers`
+# 课程信息表`courses`
+# 课程订阅表`subscription`
+# 课程讨论表`discussion`
+# 课程评价表`evaluation`
+# 笔记表`note`
+# 话题表`topic`
+# 话题回复表`topic_reply`
+# 模拟面试表`interview`
+# 课程众筹表`cfd`
+# 众筹评论表`cfd_reply`
+
+下面是数据表的详细情形  
+=== 数据表的详细情形 ===
+*null*:可以为空
+*not null*:不可以为空
+*defalut x*:默认值为x
+
+==== 用户信息表users ====
+主要是用户来存储用户的基本信息资料  
+
+*表名:*`users`
+
+*列表项*
+
+| 列表项昵称   | 列表项     | 类型定义                                         | 限制及意义                                       |
+| 用户ID       | user_id    | int unsigned not null auto_increment primary key |                                                  |
+| 用户类型     | user_type  | enum('g','m') defalut 'g'                        |                                                  |
+| 密码         | password   | varbinary(16) not null                           | 通过加密函数进行加密的二进制代码，不可见         |
+| 加密字符串   | salt       | char(20) not null                                | 加密所需的额外字符串，每次更改密码时，随机生成的 |
+| 昵称         | nick_name  | varchar(250) null                                | 完成登录时，显示的名称，若是不设置，请显示用户名 |
+| 姓名         | name       | varchar(250) null                                | 真实姓名                                         |
+| 用户图像名称 | pic_name   | varchar(250) null                                |                                                  |
+| 用户图像路径 | pic_path   | varchar(250) null                                | 存储路径                                         |
+| 生日         | birth      | date null                                        |                                                  |
+| 省           | province   | varchar(250) null                                | 现居住省                                         |
+| 市           | city       | varchar(250) null                                | 现居住市                                         |
+| 性别         | sex        | enum('m','f') default m                          |                                                  |
+| 职业         | occupation | varchar(250) null                                |                                                  |
+| 电话         | phone      | char(11) null                                    |                                                  |
+| 邮箱         | mail       | varchar(250) not null                            |                                                  |
+| 邮箱验证     | mail_flag  | boolean default false                            | 未曾验证是false,验证成功是true                   |
+| 注册时间     | reg        | datetime not null                                |                                                  |
+
+
+==== 讲师信息表lecturers ====
+主要用来存储讲师的基本信息，比如姓名，简介
+
+*表名:*`lecturers`
+
+*列表项*
+
+| 列表项昵称   | 列表项      | 类型定义                                              | 限制及意义 |
+| 讲师ID       | lecturer_id | smallint unsigned not null auto_increment primary key |            |
+| 讲师名称     | name        | varchar(255) not null                                 |            |
+| 讲师图片名   | pic_name    | varchar(255) not null                                 |            |
+| 讲师图片路径 | pic_path    | varchar(255) not null                                 |            |
+| 讲师简介     | intro       | text not null                                         |            |
+
+==== 课程信息表courses ====
+主要用来存储课程的基本信息，比如课程名，课程位置，价钱等  
+
+*表名:*`courses`
+
+*列表项*
+
+| 列表项昵称   | 列表项      | 类型定义                                                                         | 限制及意义                 |
+| 课程ID       | course_id   | int unsigned not null auto_increment primary key                                 |                            |
+| 课程名       | name        | varchar(250) not null                                                            |                            |
+| 课程路径     | path        | varhar(250) not null                                                             |                            |
+| 课程图片名字 | pic_name    | varchar(250) not null                                                            |                            |
+| 课程图片路径 | pic_path    | varchar(250) not null                                                            | 存储图片路径(不包含图片名) |
+| 课程描述     | intro       | text not null                                                                    | 可以存储65535个字符        |
+| 观看人数     | watch_man   | int unsigned defalut 0                                                           |                            |
+| 好评人数     | good_man    | int unsigned default 0                                                           |                            |
+| 讲师ID       | lecturer_id | smallint unsigned not null, foreign key(lecturer_id) references key(lecturer_id) | 65535个                    |
+| 价钱         | price       | float default 0.0                                                                |                            |
+| 折扣         | rebate      | float default 1.0                                                                |                            |
+| 增值服务     | service     | float default 0.0                                                                |                            |
+| 课程时长     | time        | time not null                                                                    | hh:mm:ss                   |
+| 课程类型     | type        | varchar(250)                                                                     |                            |
+| 课程章节     | section     | smallint not null                                                                |                            |
+
+==== 课程订阅表subscription ====
+主要存储用户订阅课程的信息，涉及用户和课程的交互
+
+*表名:*`subscription`
+
+*列表项*
+
+| 列表项昵称 | 列表项    | 类型定义                                                                    | 限制及意义 |
+| 课程订阅ID | ss_id     | int unsigned not null auto_increment primary key                            |            |
+| 课程ID     | course_id | int unsigned not null ,foreign key(course_id) references courses(course_id) |            |
+| 用户Id     | user_id   | int unsigned not null ,foreign key(user_id) references users(user_id)       |            |
+
+==== 课程讨论表discussion ====
+主要存储用户对于某一课程的讨论以及用户对用户讨论的回复，涉及课程，用户  
+
+*表名:*`discussion`
+
+*列表项*
+
+| 列表项昵称 | 列表项    | 类型定义                                                                    | 限制及意义          |
+| 讨论ID     | dis_id    | int unsigned not null auto_increment primary key                         |                     |
+| 课程ID     | course_id | int unsigned not null ,foreign key(course_id) references courses(course_id) |                     |
+| 回复ID     | reply_id  | int unsigned not null ,foreign key(reply_id) discussion(dis_id)          |                     |
+| 回复内容   | content   | text not null                                                               |                     |
+| 回复时间   | time      | datetime not null                                                           | YYYY-MM-DD HH:MM:SS |
+
+==== 课程评价表evaluation ====
+主要记录用户对于本课程的评价，每个用户仅有一次评价机会，但是可以修改  
+
+*表名:*`evaluation`
+
+*列表项*
+
+| 列表项昵称 | 列表项    | 类型定义                                                                    | 限制及意义 |
+| 评价ID     | eva_id    | int unsigned not null auto_increment primary key                            |            |
+| 课程ID     | course_id | int unsigned not null ,foreign key(course_id) references courses(course_id) |            |
+| 用户ID     | user_id   | int unsigned not null ,foreign key(user_id) references users(user_id)       |            |
+| 评价内容   | content   | text nut null                                                               |            |
+| 星级       | star      | tinyint default 5                                                           |            |
+
+==== 笔记表note ====
+主要是用户对于每一个课程的笔记，可以存储播放位置，涉及课程，用户  
+
+*表名:*`note`
+
+*列表项*
+
+| 列表项昵称 | 列表项      | 类型定义                                                                    | 限制及意义                 |
+| 笔记ID     | note_id     | int unsigned not null auto_increment primary key                         |                            |
+| 用户ID     | user_id     | int unsigned not null ,foreign key(user_id) references users(user_id)       |                            |
+| 课程ID     | course_id   | int unsigned not null ,foreign key(course_id) references courses(course_id) |                            |
+| 笔记内容   | content     | text not null                                                               |                            |
+| 中断时间   | course_time | time not null                                                               | 当前笔记时，视频的播放时间 |
+| 笔记时间   | note_time   | datetime not null                                                           | 当前笔记时，世界时间       |
+
+==== 话题表topic ====
+主要存储用户发表的话题，就像百度贴吧的帖子,涉及用户表
+
+*表名:*`topic`
+
+*列表项*
+
+| 列表项昵称       | 列表项   | 类型定义                                                              | 限制及意义 |
+| 话题ID           | topic_id | int unsigned not null auto_increment primary key                      |            |
+| 话题发起人ID     | user_id  | int unsigned not null ,foreign key(user_id) references users(user_id) |            |
+| 话题题目         | title    | varchar(255) not null                                                 |            |
+| 话题内容         | content  | text not null                                                         |            |
+| 话题类型         | type     | varchar(255) not null                                                 |            |
+| 话题标签1        | lable1   | varchar(255) not null                                                 |            |
+| 话题标签2        | lable2   | varchar(255) not null                                                 |            |
+| 话题标签3        | lable3   | varchar(255) not null                                                 |            |
+| 话题浏览数       | browse   | int unsigned not null                                                 |            |
+| 话题回复数       | reply    | int unsigned not null                                                 |            |
+| 话题最新回复时间 | time     | datetime not null                                                     |            |
+
+==== 话题回复表topic_reply ====
+主要存储用户某一话题的回复以及用户对其他用户在话题专栏回复的回复，涉及话题表,用户表
+
+*表名:*`topic_reply`
+
+*列表项*
+
+| 列表项昵称 | 列表项         | 类型定义                                                                               | 限制及意义 |
+| 话题回复ID | topic_reply_id | int unsigned not null auto_increment primary key                                    |            |
+| 回复话题ID | topic_id       | int unsigned not null, foreign key(topic_id) references topic(topic_id)                |            |
+| 被回复的ID | reply_id       | int unsigned not null, foreign key(reply_id) references topic_reply(topic_reply_id) |            |
+| 回复者ID   | user_id        | int unsigned not null , foreign key(use_id) references users(user_id)                  |            |
+| 回复内容   | contnet        | text not null                                                                          |            |
+| 回复时间   | time           | datetime not null                                                                      |            |
+
+==== 模拟面试表interview ====
+主要存储用户对模拟面试的信息
+
+*表名:*`interview`
+
+*列表项*
+
+| 列表项昵称   | 列表项      | 类型定义                                                                               | 限制及意义 |
+| 面试ID       | view_id     | int unsigned not null auto_increment primary key                                       |            |
+| 面试人ID     | user_id     | int unsigned not null foreign key(user_id) references users(user_id)                   |            |
+| 面试官ID     | lecturer_id | smallint unsigned not null, foreign key(lecturer_id) references lecturers(lecturer_id) |            |
+| 附件名       | att_name    | varchar(255) not null                                                                  |            |
+| 附件存放位置 | att_path    | varchar(255) not null                                                                  |            |
+
+==== 课程众筹表cfd ====
+用于存储用户对于我们发起的某门课程的众筹信息
+
+*表名:*`cfd`
+
+*列表项*
+
+| 列表项昵称 | 列表项      | 类型定义                                         | 限制及意义 |
+| 众筹ID     | cfd_id      | int unsigned not null auto_increment primary key |            |
+| 课程名     | course_name | varchar(255) not null                            |            |
+| 课程介绍   | intro       | text not null                                    |            |
+| 支持人数   | do_man      | int unsigned not null default 0                  |            |
+| 目标人数   | deal_man    | int unsigned not null default 0                  |            |
+| 截止日期   | deadline    | datetime not null                                |            |
+| 众筹费用   | price       | float not null default 0.0                       |            |
+
+==== 众筹评论表cfd_reply ====
+用于存储用户对每一个众筹课程的评论  
+
+*表名:*`cfd_reply`
+
+*列表项*
+
+| 列表项昵称 | 列表项       | 类型定义                                                                         | 限制及意义 |
+| 众筹评论ID | cfd_reply_id | int unsigned not null auto_increment primary key                                 |            |
+| 众筹ID     | cfd_id       | int unsigned not null, forieign key(cfd_id) references cfd(cfd_id)               |            |
+| 回复评论ID | repy_id      | int unsigned not null, forieign key(reply_id) references cfd_reply(cfd_reply_id) |            |
+| 评论用户   | user_id      | int unsigned not null, foreign key(user_id) references users(user_id)            |            |
+| 评论内容   | content      | text not null                                                                    |            |
+| 评论时间   | time         | datetime not null                                                                |            |
+
+%toc
+%title pooker数据库主页 

@@ -150,18 +150,18 @@ pooker数据库一共12个表
 
 *列表项*
 
-| 列表项昵称       | 列表项   | 类型定义                                                              | 限制及意义 |
-| 话题ID           | topic_id | int unsigned not null auto_increment primary key                      |            |
-| 话题发起人ID     | user_id  | int unsigned not null ,foreign key(user_id) references users(user_id) |            |
-| 话题题目         | title    | varchar(255) not null                                                 |            |
-| 话题内容         | content  | text not null                                                         |            |
-| 话题类型         | type     | varchar(255) not null                                                 |            |
-| 话题标签1        | lable1   | varchar(255) not null                                                 |            |
-| 话题标签2        | lable2   | varchar(255) not null                                                 |            |
-| 话题标签3        | lable3   | varchar(255) not null                                                 |            |
-| 话题浏览数       | browse   | int unsigned not null                                                 |            |
-| 话题回复数       | reply    | int unsigned not null                                                 |            |
-| 话题最新回复时间 | time     | datetime not null                                                     |            |
+| 列表项昵称   | 列表项   | 类型定义                                                              | 限制及意义 |
+| 话题ID       | topic_id | int unsigned not null auto_increment primary key                      |            |
+| 话题发起人ID | user_id  | int unsigned not null ,foreign key(user_id) references users(user_id) |            |
+| 话题题目     | title    | varchar(255) not null                                                 |            |
+| 话题内容     | content  | text not null                                                         |            |
+| 话题类型     | type     | varchar(255) not null                                                 |            |
+| 话题标签1    | lable1   | varchar(255) not null                                                 |            |
+| 话题标签2    | lable2   | varchar(255) not null                                                 |            |
+| 话题标签3    | lable3   | varchar(255) not null                                                 |            |
+| 话题浏览数   | browse   | int unsigned not null                                                 |            |
+| 话题回复数   | reply    | int unsigned not null                                                 |            |
+| 话题发表时间 | time     | datetime not null                                                     |            |
 
 ==== 话题回复表topic_reply ====
 主要存储用户某一话题的回复以及用户对其他用户在话题专栏回复的回复，涉及话题表,用户表

@@ -1,0 +1,47 @@
+= 菩提的维基世界 =
+=== 这是哪儿？ ===
+这里可不是"斜月三星洞"，也没有什么菩提祖师，只有一个安安静静，和你一样喜欢折腾的菩提!
+<div id="whats-special" class="lesser" style="width: 45em">
+<div class="hd">有什么特别的？</div>
+<div class="cont">
+# 整个站点看起来不错吧，喜欢极简的你应该会赞叹,其实这个站点我并没有费多少力气
+# 我想你肯定是不相信的,那么动起你的手吧,请参考[[http://wiki.ktmud.com/tips/vim/vimwiki-guide.html|用 vimwiki 搭建你自己的维基世界]]  
+# 本页面完全通过Vim手写，配色和JS效果嘛，你懂得，嘿嘿，多谢[[http://kwiki.github.io/index.html|丘迟]]了  
+# 我比较喜欢那个红色的火焰效果和右边那个Table of Contentes(快捷键Shift+Z可以显示和隐藏)
+# 集成DISQUS评论服务，想我咯可以留个言哦
+# 毫无疑问，这个页面在Webkit内核的浏览器里显示效果是最好的（快来试一试[[http://www.google.com/chrome/?hl=zh-CN|Chrome]]或[[http://www.apple.com.cn/safari|Safari]]）。
+</div>
+</div>
+
+=== [[tips/knowledge|经验总结]] ===
+天上风筝在天上飞，地上人儿在地上追，你若担心你不能飞，那么，就不飞了...
+
+我们还是把这21世纪漫天飞的" [[风筝]] "拽下来，放在[[tips/knowledge|这儿吧]]
+==== 语言类 ====
+* [[C]]  
+
+= OSPF =  
+* [[personal_intro|项目模块的简单介绍]]  
+* [[ospf_todo1|第一周任务(2014-11-06-->)]]
+*
+=== 那些年 ===
+{{{
+那些年，是流逝的岁月
+那些年，是遗失的纯真  
+那些年，是不曾离去的感动  
+}}}
+==== [[余音绕梁]] ====
+
+=== 不一样的烟火 ===
+心存伟大，勿忘初心  
+* 最近要完成的 [[todo|任务]]
+* 闲暇时记记 [[diary/diary|流水帐]]
+<hr />
+<hr />
+
+
+
+
+
+%toc
+%title 欢迎来到菩提的维基世界 - a site build with Vim, Vimwiki and Git

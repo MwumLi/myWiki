@@ -33,7 +33,7 @@ pooker数据库一共12个表
 | 列表项昵称   | 列表项     | 类型定义                                         | 限制及意义                                       |
 | 用户ID       | user_id    | int unsigned not null auto_increment primary key |                                                  |
 | 用户类型     | user_type  | enum('g','m') defalut 'g'                        |                                                  |
-| 密码         | pass       | varbinary(16) not null                           | 具体计算见下文                                   |
+| 密码         | password   | varbinary(16) not null                           | 通过加密函数进行加密的二进制代码，不可见         |
 | 加密字符串   | salt       | char(20) not null                                | 加密所需的额外字符串，每次更改密码时，随机生成的 |
 | 昵称         | nick_name  | varchar(250) null                                | 完成登录时，显示的名称，若是不设置，请显示用户名 |
 | 姓名         | name       | varchar(250) null                                | 真实姓名                                         |
@@ -46,26 +46,9 @@ pooker数据库一共12个表
 | 职业         | occupation | varchar(250) null                                |                                                  |
 | 电话         | phone      | char(11) null                                    |                                                  |
 | 邮箱         | mail       | varchar(250) not null                            |                                                  |
-| 邮箱验证     | active     | varchar(21) NULL                                 | 用于产生激活连接                                 |
+| 邮箱验证     | mail_flag  | boolean default false                            | 未曾验证是false,验证成功是true                   |
 | 注册时间     | reg        | datetime not null                                |                                                  |
-*具体介绍*
-* 密码部分，客户端c_pass经过md5加密pass1，传送给服务器,服务器得到，通过某种运算得到20字节的加密文salt,最后salt和pass1经过最终计算得到final_pass.存入数据库中
-{{{
-c_pass = 用户输入  
-pass1 = md5(c_pass)
-之前这两步需要客户端做  
-之后这几步服务器来做  
-pass1 = substring(pass1, 15)
-salt = substring(md5(rand()), -20)
-final_pass = aes_encrypt(pass1, salt) 
-}}}
 
-* 邮箱验证部分，我们需要邮箱名和active值来作为邮箱验证基础：当使用邮箱注册的时候，我们会同时生成active验证字符串; 当邮箱一旦验证，则 
-{{{
-  active = substring(md5(uniqid(rand(), true)), -20);
-  }}}
-
-* 用户类型问题: 我采用数字来区分，之所以这样做，是为了便于日后用户等级划分：后台管理者为0，普通用户暂定为1，其他日后再说  
 
 ==== 讲师信息表lecturers ====
 主要用来存储讲师的基本信息，比如姓名，简介

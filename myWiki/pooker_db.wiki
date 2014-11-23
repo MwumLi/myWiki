@@ -32,7 +32,7 @@ pooker数据库一共12个表
 
 | 列表项昵称   | 列表项     | 类型定义                                         | 限制及意义                                       |
 | 用户ID       | user_id    | int unsigned not null auto_increment primary key |                                                  |
-| 用户类型     | user_type  | enum('g','m') defalut 'g'                        |                                                  |
+| 用户类型     | user_type  | tinyint(1) UNSIGNED NOT NULL DEFAULT 1           |                                                  |
 | 密码         | pass       | varbinary(16) not null                           | 具体计算见下文                                   |
 | 加密字符串   | salt       | char(20) not null                                | 加密所需的额外字符串，每次更改密码时，随机生成的 |
 | 昵称         | nick_name  | varchar(250) null                                | 完成登录时，显示的名称，若是不设置，请显示用户名 |

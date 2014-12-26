@@ -22,9 +22,10 @@
 		</li>
 	</ul>
 </div>
+<div id="cse"></div>
 <div id="main">
 
-<h1 id="toc_1" class="justcenter">poker数据库的构想</h1>
+<h1 id="toc_1" class="justcenter">pooker数据库的构想</h1>
 <p>
 Welcome,Everyone!
 </p>
@@ -135,7 +136,7 @@ int unsigned not null auto_increment primary key
 user_type
 </td>
 <td>
-enum('g','m') defalut 'g'
+tinyint(1) UNSIGNED NOT NULL DEFAULT 1
 </td>
 <td>
 &nbsp;
@@ -146,13 +147,13 @@ enum('g','m') defalut 'g'
 密码
 </td>
 <td>
-password
+pass
 </td>
 <td>
 varbinary(16) not null
 </td>
 <td>
-通过加密函数进行加密的二进制代码，不可见
+具体计算见下文
 </td>
 </tr>
 <tr>
@@ -328,13 +329,13 @@ varchar(250) not null
 邮箱验证
 </td>
 <td>
-mail_flag
+active
 </td>
 <td>
-boolean default false
+varchar(21) NULL
 </td>
 <td>
-未曾验证是false,验证成功是true
+用于产生激活连接
 </td>
 </tr>
 <tr>
@@ -352,7 +353,38 @@ datetime not null
 </td>
 </tr>
 </table>
+<p>
+<strong>具体介绍</strong>
+</p>
+<ul>
+<li>
+密码部分，客户端c_pass经过md5加密pass1，传送给服务器,服务器得到，通过某种运算得到20字节的加密文salt,最后salt和pass1经过最终计算得到final_pass.存入数据库中
+<pre>
+c_pass = 用户输入  
+pass1 = md5(c_pass)
+之前这两步需要客户端做  
+之后这几步服务器来做  
+pass1 = substring(pass1, 15)
+salt = substring(md5(rand()), -20)
+final_pass = aes_encrypt(pass1, salt) 
+</pre>
 
+</ul>
+
+<ul>
+<li>
+邮箱验证部分，我们需要邮箱名和active值来作为邮箱验证基础：当使用邮箱注册的时候，我们会同时生成active验证字符串; 当邮箱一旦验证，则 
+<pre>
+  active = substring(md5(uniqid(rand(), true)), -20);
+</pre>
+
+</ul>
+
+<ul>
+<li>
+用户类型问题: 我采用数字来区分，之所以这样做，是为了便于日后用户等级划分：后台管理者为0，普通用户暂定为1，其他日后再说  
+
+</ul>
 
 <h4 id="toc_1.0.2.2">讲师信息表lecturers</h4>
 <p>
@@ -1250,7 +1282,7 @@ int unsigned not null
 </tr>
 <tr>
 <td>
-话题最新回复时间
+话题发表时间
 </td>
 <td>
 time
@@ -1722,7 +1754,7 @@ datetime not null
 
 <div class="toc">
 <ul>
-<li><a href="#toc_1">poker数据库的构想</a>
+<li><a href="#toc_1">pooker数据库的构想</a>
 <ul>
 <li><a href="#toc_1.0.1">数据库简介</a>
 <li><a href="#toc_1.0.2">数据表的详细情形</a>
